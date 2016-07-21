@@ -1,0 +1,118 @@
+*
+*
+*   NAME: 
+*   AUTHOR: James Hanford
+*   CREATED: 25/03/2016
+*   VERSION: 1.0.0
+*
+*/
+
+
+/***************************
+TYPOGRAPHY
+***************************/
+@import url(http://fonts.googleapis.com/css?family=Hind:400,300,500);
+@import url(http://fonts.googleapis.com/css?family=Roboto:400,100,300);
+@import url(http://fonts.googleapis.com/css?family=Roboto+Slab:400,300,100,700);
+@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:300,700,800,400,600);
+@import url(http://fonts.googleapis.com/css family=Ubuntu:300,400,500,700);
+@import url(http://fonts.googleapis.com/css?family=PT+Sans:400,700);
+@import url(http://fonts.googleapis.com/css?family=Playfair+Display);
+@import url(https://fonts.googleapis.com/css?family=Dosis:400,300,200,500,600,700,800);
+
+
+
+/***************************
+CUSTOM GENERAL CLASSES
+***************************/
+.center-vert {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.center-hoz {
+    margin: 0 auto;
+    text-align: center;
+}
+
+.inline-block{
+    display: inline-block;
+}
+
+body{
+    margin: 0;
+}
+
+
+/***************************
+EVERYTHING ELSE
+***************************/
+.one{
+    background-color: #1f2329;
+    height: 100vh;
+    width: 100%;   
+}
+
+.two{
+    background-color: #f1f1ef;
+    height: 10vh;
+    width: 100%;
+    
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.three{
+    height: 90%;
+    width: 100%;
+    
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+h1{
+    color: #000;
+    font-family: 'Source Sans Pro';
+    font-size: 150%;
+    letter-spacing: 8px;
+    text-transform: uppercase;
+}
+
+h2{
+    color: #f1f1ef;
+    
+    font-family: 'Source Sans Pro';
+    font-size: 500%;
+    
+    letter-spacing: 15px;
+    text-transform: uppercase;
+}
+
+.blink {
+  animation: blink-animation 1s steps(2, start) infinite;
+  -webkit-animation: blink-animation 1s steps(2, start) infinite;
+}
+@keyframes blink-animation {
+  to {
+    visibility: hidden;
+  }
+}
+@-webkit-keyframes blink-animation {
+  to {
+    visibility: hidden;
+  }
+}
+
+svg{
+    transform: translateY(-110%);
+    position: absolute;
+    width: 100%;
+}
+
+.blah {
+    width: 100%;
+    height: 100vh
+}
