@@ -8,12 +8,11 @@
 *
 */
 
-
 /***************************
 ON DOC READY ~ START
 ***************************/
 $(document).ready(function () {
-
+    
     $('.TopBar-Left').click(function () {
         
         $('.Nav-Container').addClass('Nav-Transition');
