@@ -13,7 +13,10 @@ VARIABLES
 ***************************/
 
 /* --------------- COLOR SWATCHES ----------------- */
+$dark-hero: #1f2329;
 
+$topbar-white: #f8f8f8;
+$topar-icon-bg: #e2e2e2;
 
 
 /***************************
@@ -107,13 +110,13 @@ NAVIGATION
 LANDING SECTION
 ***************************/
 .Landing-Container{
-    background-color: #1f2329;
+    background-color: $dark-hero;
     height: 100vh;
     width: 100%;   
 }
 
 .Landing-TopBar{
-    background-color: #f8f8f8;
+    background-color: $topbar-white;
     height: 10vh;
     width: 100%;
     
@@ -126,14 +129,14 @@ LANDING SECTION
     height: 100%;
     width: 100px;
     margin-right: auto;
-    background-color: e2e2e2;
+    background-color: $topar-icon-bg;
     z-index: 800;
 }
 .TopBar-Right{
     height: 100%;
     width: 200px;
     margin-left: auto;
-    background-color: e2e2e2;
+    background-color: $topar-icon-bg;
 }
 
 .TopBar-Center{
@@ -289,14 +292,14 @@ ROADMAP SECTION
     width: 100%;
     min-height: 100vh;
     
-    background-color: #1e80ab;
+    background-color: $dark-hero;
     text-align: center;
     
     display: table;
 }
 
 .Roadmap-Container > h5{
-    color: #1f2329;
+    color: white;
     
     margin: 50px 0px;
     font-family: 'Open Sans';
@@ -378,6 +381,19 @@ ROADMAP SECTION
     letter-spacing: 3px;
     font-size: 120%;
     margin: 0;
-    font-weight: 300;
+    font-weight: 600;
     opacity: 0.8;
+}
+
+/***************************
+PORTFOLIO SECTION
+***************************/
+.Portfolio-Container{
+    width: 100%;
+    min-height: 100vh;
+    
+    background-color: white;
+    text-align: center;
+    
+    display: table;
 }

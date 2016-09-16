@@ -24,8 +24,16 @@ $(document).ready(function () {
         $(this).toggleClass('testing');    
     });
     
-    $('ul > li').click(function () {
-        scrollToAnchor('1');
+    $('ul > li:nth-child(1)').click(function () {
+        scrollToAnchor('about');
+    });
+    
+    $('ul > li:nth-child(2)').click(function () {
+        scrollToAnchor('timeline');
+    });
+    
+    $('ul > li:nth-child(3)').click(function () {
+        scrollToAnchor('portfolio');
     });
     
 });

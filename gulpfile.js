@@ -1,30 +1,41 @@
 'use strict';
 
-var gulp = require('gulp');
+var gulp = require('gulp'),                             
+    sass = require('gulp-sass'),                        
+    autoprefixer = require('gulp-autoprefixer'),        
+    notify = require('gulp-notify'),                    
+    plumber = require('gulp-plumber');
 
-function handleError(error) {
-    console.log(error);
-    this.emit('end');
-}
+
+var target = {
+    sass_src  : 'scss/**/*.scss',
+    css_dest : 'css/',
+};
+
 
 // Style Task
 // Compiles Sass Code to css directory 
 gulp.task('styles', function() {
-    var sass = require('gulp-sass');
-    var autoprefixer = require('gulp-autoprefixer');
-
-    gulp.src('scss/**/*.scss')
-        .pipe(sass()).on('error', handleError)
-        .pipe(autoprefixer('> 5%'))
-        .pipe(gulp.dest('css/'));
+    gulp.src(target.sass_src)
+        .pipe(plumber())
+        .pipe(sass())
+        .pipe(autoprefixer(
+            'last 2 versions', 
+            '> 5%', 
+            'ie 8',
+            'ie 9'
+        ))
+        .pipe(gulp.dest(target.css_dest))
+        .pipe(notify({message: 'SCSS Processed!'}));
 });
 
 
 // Watch Task 
-// Watches for changes and triggers style task 
+// Watches for changes and triggers gulp task
 gulp.task('watch', function() {
-    gulp.watch('scss/*.scss', ['styles']);
+    gulp.watch(target.sass_src, ['styles']);
 });
 
 
+//Default Gulp Task
 gulp.task('default', ['watch']);
