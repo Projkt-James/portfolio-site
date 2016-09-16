@@ -12,6 +12,9 @@
 VARIABLES
 ***************************/
 
+/* --------------- COLOR SWATCHES ----------------- */
+
+
 
 /***************************
 TYPOGRAPHY
@@ -33,21 +36,10 @@ IMPORTS
 ***************************/
 @import "custom";
 
-body{
-    margin: 0;
-    
-    -webkit-font-smoothing: antialiased;
-    text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
-}
 
 
-.display-block {
-    display: block !important;
-}
 
-.inline-block{
-    display: inline-block;
-}
+
 
 /***************************
 EVERYTHING ELSE

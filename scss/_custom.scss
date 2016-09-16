@@ -88,4 +88,19 @@ MULTIPURPOSE CLASSES
     @include border-radius(50%);
     behaviour: url(PIE.htc); // IE8 SUPPORT
 }
+
+.display-block {
+    display: block !important;
+}
+
+.display-inline-block{
+    display: inline-block !important;
+}
+
+body{
+    margin: 0;
+    
+    -webkit-font-smoothing: antialiased;
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
+}
 //END CUSTOM.SCSS
