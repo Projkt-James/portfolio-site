@@ -12,11 +12,12 @@
 VARIABLES
 ***************************/
 
-/* --------------- COLOR SWATCHES ----------------- */
+/* COLOR SWATCHES */
 $dark-hero: #1f2329;
+$hero-blue: #1e80ab;
 
 $topbar-white: #f8f8f8;
-$topar-icon-bg: #e2e2e2;
+$topbar-icon-bg: #e2e2e2;
 
 
 /***************************
@@ -39,16 +40,6 @@ IMPORTS
 ***************************/
 @import "custom";
 
-
-
-
-
-
-/***************************
-EVERYTHING ELSE
-***************************/
-
-
 /***************************
 NAVIGATION
 ***************************/
@@ -70,7 +61,7 @@ NAVIGATION
             font-family: 'Open Sans';
             font-size: 90%;
             letter-spacing: 1px;
-            font-weight: 400;
+            font-weight: 600;
             text-transform: uppercase;
 
             padding: 4px 8px;
@@ -82,7 +73,7 @@ NAVIGATION
     }
 }
 
-//Animation Helpers
+/* ANIMATION HELPERS */
 .translate-x-0{
     @include translate-x(0%);
 }
@@ -94,15 +85,7 @@ NAVIGATION
     @include transition(padding 0.1s ease);
 }
 
-.Nav-Container ul{
-    
-}
-
-.Nav-Container li{
-    
-}
-
-.testing{
+.List-Push{
     padding-left: 30px !important;
 }
 
@@ -113,90 +96,157 @@ LANDING SECTION
     background-color: $dark-hero;
     height: 100vh;
     width: 100%;   
-}
-
-.Landing-TopBar{
-    background-color: $topbar-white;
-    height: 10vh;
-    width: 100%;
     
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-}
-
-.TopBar-Left{
-    height: 100%;
-    width: 100px;
-    margin-right: auto;
-    background-color: $topar-icon-bg;
-    z-index: 800;
-}
-.TopBar-Right{
-    height: 100%;
-    width: 200px;
-    margin-left: auto;
-    background-color: $topar-icon-bg;
-}
-
-.TopBar-Center{
-    height: 10%;
-    width: 100%;
-    position: absolute;
-    display: table;
-    width: 100%;
-}
-
-.Title-Contain{
+    svg{
+        transform: translateY(-95%);
+        position: absolute;
+        width: 100%;
+        
+        #Double_Chevron_Down{
+            fill: red !important;
+        }
+    }
     
+    .Landing-TopBar{
+        background-color: $topbar-white;
+        height: 10vh;
+        width: 100%;
+
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+
+        .TopBar-Left{
+            height: 100%;
+            width: 100px;
+            margin-right: auto;
+            display: table;
+            z-index: 800;
+            
+            .Icon-Contain{
+                display: table-cell;
+                text-align: center;
+                vertical-align: middle;
+                
+                i{
+                    color: $dark-hero;
+                    display: inline-block;
+                    padding: 10px;
+                    font-size: 150%;
+                    cursor: pointer;
+                }
+                i:hover{
+                    background-color: $dark-hero;
+                    color: white;
+                }
+            }
+        }
+        
+        .TopBar-Center{
+            height: 10%;
+            width: 100%;
+            position: absolute;
+            display: table;
+            width: 100%;
+            
+            .Title-Contain{
+                display: table-cell;
+                text-align: center;
+                vertical-align: middle;
+                
+                h1{
+                    color: #1f2329;
+                    font-family: 'Roboto';
+                    font-size: 100%;
+                    letter-spacing: 15px;
+                    text-transform: uppercase;
+                    font-weight: 400;
+                    display: inline-block;
+                    
+                    &:nth-child(2){
+                        transform: translatex(40%);
+                        margin-right: auto;
+                    }
+                    
+                } 
+            }
+            
+            svg{
+                transform: scale(-50%);
+                transform: translateY(15%);
+            }
+            
+        }//TopBar-Center
+        
+        .TopBar-Right{
+            height: 100%;
+            width: 200px;
+            margin-left: auto;
+            text-align: center;
+            display: table;
+            z-index: 800;
+            
+            .Icon-Contain{
+                display: table-cell;
+                text-align: center;
+                vertical-align: middle;
+                
+                i{
+                    color: $dark-hero;
+                    display: inline-block;
+                    padding: 8px;
+                    margin: 2px;
+                    font-size: 135%;
+                }
+                i:hover{
+                    color: #f8f8f8;
+                    cursor: pointer;
+                }
+                //LinkedIn
+                i:nth-child(1):hover{
+                    background-color: #0077b5;
+                }
+                //Mail
+                i:nth-child(2):hover{
+                    background-color: #ea4c89;
+                }
+                //Github
+                i:nth-child(3):hover{
+                    background-color: #999;
+                }
+                
+            }
+            
+        }//TopBar-Right
+        
+    }//Landing-Top-Bar
     
-    display: table-cell;
-    text-align: center;
-    vertical-align: middle;
-}
+    .Landing-Splash{
+        height: 90%;
+        width: 100%;
 
-.Landing-Splash{
-    height: 90%;
-    width: 100%;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        
+        h2{
+            color: #f1f1ef;
+
+            font-family: 'Source Sans Pro';
+            font-size: 500%;
+            letter-spacing: 15px;
+            text-transform: uppercase;
+        }
+    }
     
-    display:flex;
-    justify-content:center;
-    align-items:center;
-}
+}//Landing-Container
 
-.Title-Contain > h1{
-    color: #1f2329;
-    font-family: 'Roboto';
-    font-size: 100%;
-    letter-spacing: 15px;
-    text-transform: uppercase;
-    font-weight: 400;
-    display: inline-block;
-}
+/* ANIMATION & HELPERS */
 
-h2{
-    color: #f1f1ef;
-    
-    font-family: 'Source Sans Pro';
-    font-size: 500%;
-    
-    letter-spacing: 15px;
-    text-transform: uppercase;
-}
-
-h3{
-    color: #1f2329;
-    font-family: 'Hind';
-    font-size: 100%;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    font-weight: 400;
-    padding-left: 20px;
-}
-
+//Used to make underscore blink
 .blink {
-  animation: blink-animation 1s steps(2, start) infinite;
-  -webkit-animation: blink-animation 1s steps(2, start) infinite;
+  animation: blink-animation 2s steps(2, start) infinite;
+  -webkit-animation: blink-animation 2s steps(2, start) infinite;
 }
 @keyframes blink-animation {
   to {
@@ -209,17 +259,15 @@ h3{
   }
 }
 
-svg{
-    transform: translateY(-110%);
-    position: absolute;
-    width: 100%;
+//Used to make arrow bounce
+.bounce{
+    animation: bounce-animation 2s infinite;
 }
-
-.TopBar-Center > svg{
-    transform: scale(-50%);
-    transform: translateY(15%);
+@keyframes bounce-animation {
+    0% {margin-top: 0px;}
+    50% {margin-top: -20px;}
+    100% {margin-top: 0px;}
 }
-
 
 /***************************
 ABOUT SECTION
@@ -338,8 +386,8 @@ ROADMAP SECTION
 }
 
 .Roadmap-Timeline .Point{
-    width: 15px;
-    height: 15px;
+    width: 16px;
+    height: 16px;
     display: block;
     margin: 0 auto;
     margin-top: 50px;
@@ -396,4 +444,15 @@ PORTFOLIO SECTION
     text-align: center;
     
     display: table;
+}
+
+.Debug{
+    position: fixed;
+    right: 0;
+    z-index: 999;
+    width: 30%;
+    height: 20vh;
+    background-color: black;
+    color: white;
+    display: none;
 }
