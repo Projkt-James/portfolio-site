@@ -130,7 +130,7 @@ LANDING SECTION
     position: absolute;
     width: 100%; }
     .Landing-Container svg #Double_Chevron_Down {
-      fill: red !important; }
+      fill: #337ab7 !important; }
   .Landing-Container .Landing-TopBar {
     background-color: #f8f8f8;
     height: 10vh;
@@ -264,7 +264,7 @@ ABOUT SECTION
 
 .About-Centered > hr {
   width: 60px;
-  height: 2px;
+  height: 3px;
   margin: 10px 0px;
   background-color: #1e80ab;
   display: inline-block;
@@ -290,7 +290,7 @@ h4 {
   margin: 30px 0px;
   display: inline-block;
   border: none;
-  font-family: 'Source Sans Pro';
+  font-family: 'Hind';
   color: #a5a8ac;
   font-size: 140%;
   font-weight: 100; }
@@ -307,10 +307,10 @@ ROADMAP SECTION
 
 .Roadmap-Container > h5 {
   color: white;
-  margin: 50px 0px;
-  font-family: 'Open Sans';
-  font-size: 240%;
-  letter-spacing: 2px;
+  margin: 100px 0px;
+  font-family: 'Hind';
+  font-size: 198%;
+  letter-spacing: 5px;
   text-transform: uppercase;
   font-weight: 600; }
 
@@ -352,9 +352,9 @@ ROADMAP SECTION
   text-align: right; }
 
 .Roadmap-Timeline .Right {
-  transform: translateX(50%);
-  margin-left: 150px;
-  text-align: left; }
+  transform: translateX(-50%);
+  margin-right: 150px;
+  text-align: right; }
 
 .Roadmap-Timeline .Event {
   display: inline-block;
@@ -372,21 +372,79 @@ ROADMAP SECTION
   color: white;
   font-family: 'Open Sans';
   text-transform: uppercase;
-  letter-spacing: 3px;
   font-size: 120%;
   margin: 0;
-  font-weight: 600;
-  opacity: 0.8; }
+  font-weight: 400; }
 
 /***************************
 PORTFOLIO SECTION
 ***************************/
 .Portfolio-Container {
   width: 100%;
-  min-height: 100vh;
+  margin-top: 100px;
   background-color: white;
   text-align: center;
   display: table; }
+  .Portfolio-Container h1 {
+    color: #363b40;
+    margin: 20px 0px;
+    font-family: 'Hind';
+    font-size: 200%;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 400; }
+  .Portfolio-Container hr {
+    width: 80px;
+    height: 2px;
+    margin: 10px 0px;
+    background-color: #1e80ab;
+    display: inline-block;
+    border: none; }
+  .Portfolio-Container .Item-Contain {
+    width: 100%;
+    margin-bottom: 80px; }
+    .Portfolio-Container .Item-Contain .Item {
+      display: block;
+      text-align: initial;
+      float: left;
+      cursor: pointer;
+      position: relative;
+      width: 33.333333%; }
+      @media (max-width: 64em) {
+        .Portfolio-Container .Item-Contain .Item {
+          width: 50%; } }
+      @media (max-width: 50em) {
+        .Portfolio-Container .Item-Contain .Item {
+          width: 80%;
+          float: none;
+          margin: 0 auto;
+          padding: 20px 0; } }
+      .Portfolio-Container .Item-Contain .Item img {
+        width: 100%; }
+      .Portfolio-Container .Item-Contain .Item .hover {
+        position: absolute;
+        display: none;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 99%;
+        z-index: 999;
+        background-color: rgba(0, 0, 0, 0.8); }
+        .Portfolio-Container .Item-Contain .Item .hover h2 {
+          color: white;
+          text-align: center; }
+      .Portfolio-Container .Item-Contain .Item .show {
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-pack: center;
+            justify-content: center;
+        -ms-flex-align: center;
+            align-items: center; }
+
+.Footer-Container {
+  background-color: #1f2329;
+  min-height: 250px;
+  width: 100%; }
 
 .Debug {
   position: fixed;

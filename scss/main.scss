@@ -15,6 +15,7 @@ VARIABLES
 /* COLOR SWATCHES */
 $dark-hero: #1f2329;
 $hero-blue: #1e80ab;
+$hero-blue: #337ab7;
 
 $topbar-white: #f8f8f8;
 $topbar-icon-bg: #e2e2e2;
@@ -103,7 +104,7 @@ LANDING SECTION
         width: 100%;
         
         #Double_Chevron_Down{
-            fill: red !important;
+            fill: $hero-blue !important;
         }
     }
     
@@ -236,6 +237,10 @@ LANDING SECTION
             font-size: 500%;
             letter-spacing: 15px;
             text-transform: uppercase;
+            
+            span{
+            
+            }
         }
     }
     
@@ -292,7 +297,7 @@ ABOUT SECTION
 
 .About-Centered > hr{
     width: 60px;
-    height: 2px;
+    height: 3px;
     margin: 10px 0px;
     
     background-color: #1e80ab;
@@ -327,7 +332,7 @@ h4{
     margin: 30px 0px;
     display: inline-block;
     border: none;
-    font-family: 'Source Sans Pro';
+    font-family: 'Hind';
     color: #a5a8ac;
     font-size: 140%;
     font-weight: 100;
@@ -348,14 +353,12 @@ ROADMAP SECTION
 
 .Roadmap-Container > h5{
     color: white;
-    
-    margin: 50px 0px;
-    font-family: 'Open Sans';
-    font-size: 240%;
-    letter-spacing: 2px;
+    margin: 100px 0px;
+    font-family: 'Hind';
+    font-size: 198%;
+    letter-spacing: 5px;
     text-transform: uppercase;
     font-weight: 600;
-    
 }
 
 .Roadmap-Timeline{
@@ -403,9 +406,9 @@ ROADMAP SECTION
 }
 
 .Roadmap-Timeline .Right{
-    transform: translateX(+50%);
-    margin-left: 150px;
-    text-align: left;
+    transform: translateX(-50%);
+    margin-right: 150px;
+    text-align: right;
 }
 
 .Roadmap-Timeline .Event{
@@ -426,11 +429,9 @@ ROADMAP SECTION
     color: white;
     font-family: 'Open Sans';
     text-transform: uppercase;
-    letter-spacing: 3px;
     font-size: 120%;
     margin: 0;
-    font-weight: 600;
-    opacity: 0.8;
+    font-weight: 400;
 }
 
 /***************************
@@ -438,13 +439,113 @@ PORTFOLIO SECTION
 ***************************/
 .Portfolio-Container{
     width: 100%;
-    min-height: 100vh;
+    margin-top: 100px;
     
     background-color: white;
     text-align: center;
     
     display: table;
+    
+    h1{
+        color: #363b40;
+
+        margin: 20px 0px;
+        font-family: 'Hind';
+        font-size: 200%;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        font-weight: 400;
+    }
+    
+    hr{
+        width: 80px;
+        height: 2px;
+        margin: 10px 0px;
+
+        background-color: #1e80ab;
+
+        display: inline-block;
+
+        border: none;
+    }
+    
+    .Item-Contain{
+        width: 100%;
+        margin-bottom: 80px;
+        
+        .Item{
+            display: block;
+            text-align: initial;
+            float: left;
+            cursor: pointer;
+            position: relative;
+    
+            width: 33.333333%;
+            
+            //TABLET 
+            @include breakpoint(tablet) {
+                width: 50%;
+            }
+            //PHABLET & DOWN
+            @include breakpoint(phablet) {
+                width: 80%;
+                
+                float: none;
+                margin: 0 auto;
+                padding: 20px 0;
+            }
+            
+            img{
+                width: 100%;
+            }
+            
+            .hover{
+                position: absolute;
+                display: none;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 99%;
+                z-index: 999;
+                
+                
+                
+                background-color: rgba(0,0,0,0.8);
+                
+                h2{
+                    color: white;
+                    text-align: center;
+                    
+                }
+            }
+            .show{
+                display:flex;
+                justify-content:center;
+                align-items:center;
+            }
+        }
+    }//Item-Container    
 }
+
+.Footer-Container {
+    background-color: #1f2329;
+    min-height: 250px;
+    width: 100%; 
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 .Debug{
     position: fixed;

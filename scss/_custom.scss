@@ -45,23 +45,22 @@ MULTIPURPOSE MIXINS
 BREAKPOINT MIXINS
 ********************************/
 
-@mixin bp-large {
-  @media only screen and (max-width: 60em) {
-    @content;
+@mixin breakpoint($point) {
+    @if $point == laptop {
+        @media (max-width: 70em) { @content ; }
+    }
+    @else if $point == tablet {
+     @media (max-width: 64em) { @content ; }
+  }
+   @else if $point == phablet {
+     @media (max-width: 50em)  { @content ; }
+  }
+  @else if $point == mobileonly {
+     @media (max-width: 37.5em)  { @content ; }
+
   }
 }
 
-@mixin bp-medium {
-  @media only screen and (max-width: 40em) {
-    @content;
-  }
-}
-
-@mixin bp-small {
-  @media only screen and (max-width: 30em) {
-    @content;
-  }
-}
 
 /********************************
 MULTIPURPOSE CLASSES

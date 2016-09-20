@@ -13,6 +13,11 @@ ON DOC READY ~ START
 ***************************/
 $(document).ready(function () {
     
+    /*var Item_Height = .height();
+    console.log('Item Height: ' + Item_Height);
+    
+    $('.Portfolio-Container > .Item-Contain > .Item > .hover').height(Item_Height);*/
+    
     $('.TopBar-Left > .Icon-Contain > i').click(function () {
         
         $('.Nav-Container').addClass('Nav-Transition');
@@ -29,6 +34,16 @@ $(document).ready(function () {
         $(this).toggleClass('List-Push');    
     });
     
+    $('.Portfolio-Container > .Item-Contain > .Item').hover(function() {
+        console.log('Hovered');
+        $(this).children(".hover").toggleClass('show');    
+    });
+    
+    /*var portImgHeight = $('.Portfolio-Container > .Item-Contain > .Item > img').height();
+    
+    $('.Portfolio-Container > .Item-Contain > .Item').height(portImgHeight);*/
+    
+    
     $('ul > li:nth-child(1)').click(function () {
         scrollToAnchor('about');
     });
@@ -42,6 +57,9 @@ $(document).ready(function () {
     });
     
 });
+/***************************
+ON DOC READY ~ END
+***************************/
 
 $(window).scroll(function (event) {
     var scroll = $(window).scrollTop();
