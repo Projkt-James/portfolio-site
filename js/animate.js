@@ -36,7 +36,7 @@ $(document).ready(function () {
     
     $('.Portfolio-Container > .Item-Contain > .Item').hover(function() {
         console.log('Hovered');
-        $(this).children(".hover").toggleClass('show');    
+        $(this).children(".Hover").toggleClass('show');    
     });
     
     /*var portImgHeight = $('.Portfolio-Container > .Item-Contain > .Item > img').height();

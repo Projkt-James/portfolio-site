@@ -124,7 +124,8 @@ LANDING SECTION
 .Landing-Container {
   background-color: #1f2831;
   height: 100vh;
-  width: 100%; }
+  width: 100%;
+  overflow: hidden; }
   .Landing-Container svg {
     transform: translateY(-95%);
     position: absolute;
@@ -419,13 +420,14 @@ ROADMAP SECTION
 ***************************/
 .Portfolio-Container {
   width: 100%;
-  margin-top: 100px;
+  margin: 100px 0;
   background-color: white;
   text-align: center;
   display: table; }
   .Portfolio-Container h1 {
     color: #363b40;
-    margin: 20px 0px;
+    margin: 0;
+    margin-top: 20px;
     font-family: 'Hind';
     font-size: 200%;
     letter-spacing: 2px;
@@ -434,7 +436,7 @@ ROADMAP SECTION
   .Portfolio-Container hr {
     width: 80px;
     height: 2px;
-    margin: 10px 0px;
+    margin: 30px 0px;
     background-color: #1e80ab;
     display: inline-block;
     border: none; }
@@ -459,7 +461,7 @@ ROADMAP SECTION
           padding: 20px 0; } }
       .Portfolio-Container .Item-Contain .Item img {
         width: 100%; }
-      .Portfolio-Container .Item-Contain .Item .hover {
+      .Portfolio-Container .Item-Contain .Item .Hover {
         position: absolute;
         display: none;
         top: 0;
@@ -467,15 +469,41 @@ ROADMAP SECTION
         width: 100%;
         height: 99%;
         z-index: 999;
-        background-color: rgba(0, 0, 0, 0.8); }
-        .Portfolio-Container .Item-Contain .Item .hover h2 {
+        cursor: default;
+        background-color: rgba(0, 0, 0, 0.95); }
+        .Portfolio-Container .Item-Contain .Item .Hover h2 {
           color: white;
+          width: 100%;
+          margin: 0;
+          font-family: 'Open Sans';
+          font-weight: 300;
+          font-size: 3rem;
           text-align: center; }
+        .Portfolio-Container .Item-Contain .Item .Hover .Links {
+          width: 100%;
+          text-align: center;
+          margin-top: 30px; }
+          .Portfolio-Container .Item-Contain .Item .Hover .Links a {
+            color: white;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            margin: 10px;
+            border: 0.13rem solid white;
+            display: inline-block;
+            padding: 10px 24px;
+            font-family: 'Open Sans';
+            border-radius: 8px; }
+          .Portfolio-Container .Item-Contain .Item .Hover .Links a:hover {
+            color: #479dc8;
+            border-color: #479dc8; }
       .Portfolio-Container .Item-Contain .Item .show {
         display: -ms-flexbox;
         display: flex;
-        -ms-flex-pack: center;
-            justify-content: center;
+        -ms-flex-flow: row wrap;
+            flex-flow: row wrap;
+        -ms-flex-line-pack: center;
+            align-content: center;
         -ms-flex-align: center;
             align-items: center; }
 
