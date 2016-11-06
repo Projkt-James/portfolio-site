@@ -521,3 +521,96 @@ ROADMAP SECTION
   background-color: black;
   color: white;
   display: none; }
+
+/***************************
+ CSS ANIMATED HAMBURGER
+***************************/
+/*
+*
+*
+*   NAME: CSS HAMBURGER
+*   AUTHOR: James Hanford
+*   CREATED: 06/11/2016
+*   VERSION: 1.0.0
+*
+*/
+/********************************
+ VARIABLES
+********************************/
+/********************************
+ PASSIVE STATE STYLING
+********************************/
+.Hamburger {
+  position: relative;
+  width: 30px;
+  height: 26px;
+  background-color: none;
+  cursor: pointer;
+  /*General positional styling HERE*/
+  display: block;
+  margin: 0 auto;
+  /* Center span element styling */
+  /* Pseudo element styling */
+  /* Offset Top and Bottom bar */ }
+  .Hamburger span {
+    background-color: #1f2831;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 2px;
+    top: 50%;
+    /* background transition animation */
+    transition: background 0.5s ease 0s; }
+  .Hamburger span::before, .Hamburger span::after {
+    background-color: #1f2831;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 2px;
+    content: '';
+    /* transition animation */
+    transition-duration: 0.5s, 0.5s;
+    transition-delay: 0.5s, 0s;
+    transition-property: top, transform; }
+  .Hamburger span::before {
+    top: -0.6rem; }
+  .Hamburger span::after {
+    top: 0.6rem; }
+
+/********************************
+ HOVER STATE STYLING
+********************************/
+/* Not used currently
+
+.Hamburger:hover{
+	
+	span::before{
+        //top: -0.5rem;
+    }
+
+    span::after{
+        //top: 0.5rem;
+    }
+} */
+/********************************
+ ACTIVE STATE STYLING
+********************************/
+.Hamburger-Active {
+  /* Rotate Top & Bottom */ }
+  .Hamburger-Active span {
+    background: none !important; }
+  .Hamburger-Active span::before, .Hamburger-Active span::after {
+    margin-top: 0 !important;
+    top: 0px !important;
+    /* Flip delay so rotate first */
+    transition-delay: 0s, 0.5s; }
+  .Hamburger-Active span::before {
+    transform: rotate(45deg); }
+  .Hamburger-Active span::after {
+    transform: rotate(-45deg); }
