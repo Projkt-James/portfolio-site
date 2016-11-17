@@ -78,6 +78,96 @@ body {
   -webkit-font-smoothing: antialiased;
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.004); }
 
+/*
+*
+*
+*   NAME: CSS HAMBURGER
+*   AUTHOR: James Hanford
+*   CREATED: 06/11/2016
+*   VERSION: 1.0.0
+*
+*/
+/********************************
+ VARIABLES
+********************************/
+/********************************
+ PASSIVE STATE STYLING
+********************************/
+.Hamburger {
+  position: relative;
+  width: 30px;
+  height: 26px;
+  background-color: none;
+  cursor: pointer;
+  /*General positional styling HERE*/
+  display: block;
+  margin: 0 auto;
+  /* Center span element styling */
+  /* Pseudo element styling */
+  /* Offset Top and Bottom bar */ }
+  .Hamburger span {
+    background-color: #1f2831;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 2px;
+    top: 50%;
+    /* background transition animation */
+    transition: background 0.2s ease 0s; }
+  .Hamburger span::before, .Hamburger span::after {
+    background-color: #1f2831;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 2px;
+    content: '';
+    /* transition animation */
+    transition-duration: 0.2s, 0.2s;
+    transition-delay: 0.2s, 0s;
+    transition-property: top, transform;
+    transition-timing-function: ease-out; }
+  .Hamburger span::before {
+    top: -0.6rem; }
+  .Hamburger span::after {
+    top: 0.6rem; }
+
+/********************************
+ HOVER STATE STYLING
+********************************/
+/* Not used currently
+
+.Hamburger:hover{
+	
+	span::before{
+        //top: -0.5rem;
+    }
+
+    span::after{
+        //top: 0.5rem;
+    }
+} */
+/********************************
+ ACTIVE STATE STYLING
+********************************/
+.Hamburger-Active {
+  /* Rotate Top & Bottom */ }
+  .Hamburger-Active span {
+    background: none !important; }
+  .Hamburger-Active span::before, .Hamburger-Active span::after {
+    top: 0px !important;
+    /* Flip delay so rotate first */
+    transition-delay: 0s, 0.2s; }
+  .Hamburger-Active span::before {
+    transform: rotate(45deg); }
+  .Hamburger-Active span::after {
+    transform: rotate(-45deg); }
+
 /***************************
 NAVIGATION
 ***************************/
@@ -265,7 +355,7 @@ ABOUT SECTION
 
 .About-Centered > hr {
   width: 60px;
-  height: 3px;
+  height: 2px;
   margin: 10px 0px;
   background-color: #1e80ab;
   display: inline-block;
@@ -321,7 +411,7 @@ ROADMAP SECTION
   overflow: hidden;
   text-align: center;
   padding-top: 30px; }
-  @media (max-width: 37.5em) {
+  @media (max-width: 37.5rem) {
     .Roadmap-Timeline {
       text-align: left; } }
 
@@ -337,7 +427,7 @@ ROADMAP SECTION
   margin-left: -2px;
   background: white;
   left: 50%; }
-  @media (max-width: 37.5em) {
+  @media (max-width: 37.5rem) {
     .Roadmap-Timeline::before {
       left: 25%; } }
 
@@ -349,7 +439,7 @@ ROADMAP SECTION
   margin-left: -15px;
   background-color: white;
   box-shadow: 0px 0px 0px 8px rgba(255, 255, 255, 0.2); }
-  @media (max-width: 37.5em) {
+  @media (max-width: 37.5rem) {
     .Start-Point {
       left: 25%; } }
 
@@ -368,7 +458,7 @@ ROADMAP SECTION
   left: 50%;
   margin-left: -8px;
   background-color: white; }
-  @media (max-width: 37.5em) {
+  @media (max-width: 37.5rem) {
     .Roadmap-Timeline .Point {
       left: 25%; } }
 
@@ -376,7 +466,7 @@ ROADMAP SECTION
   transform: translateX(-50%);
   margin-right: 150px;
   text-align: right; }
-  @media (max-width: 37.5em) {
+  @media (max-width: 37.5rem) {
     .Roadmap-Timeline .Left {
       transform: translateX(0%);
       margin-right: 0px;
@@ -387,7 +477,7 @@ ROADMAP SECTION
   transform: translateX(50%);
   margin-left: 150px;
   text-align: left; }
-  @media (max-width: 37.5em) {
+  @media (max-width: 37.5rem) {
     .Roadmap-Timeline .Right {
       transform: translateX(0%);
       margin-left: 180px; } }
@@ -396,7 +486,7 @@ ROADMAP SECTION
   display: inline-block;
   max-width: 35%;
   margin-top: -5px; }
-  @media (max-width: 37.5em) {
+  @media (max-width: 37.5rem) {
     .Roadmap-Timeline .Event {
       max-width: 50%; } }
 
@@ -450,10 +540,10 @@ ROADMAP SECTION
       cursor: pointer;
       position: relative;
       width: 33.333333%; }
-      @media (max-width: 64em) {
+      @media (max-width: 64rem) {
         .Portfolio-Container .Item-Contain .Item {
           width: 50%; } }
-      @media (max-width: 50em) {
+      @media (max-width: 50rem) {
         .Portfolio-Container .Item-Contain .Item {
           width: 80%;
           float: none;
@@ -507,11 +597,50 @@ ROADMAP SECTION
         -ms-flex-align: center;
             align-items: center; }
 
+/***************************
+ FOOTER SECTION
+***************************/
 .Footer-Container {
   background-color: #1f2831;
-  min-height: 250px;
-  width: 100%; }
+  padding-top: 50px;
+  width: 100%;
+  text-align: center; }
+  .Footer-Container .Footer-Details {
+    display: inline-block; }
+    .Footer-Container .Footer-Details h1 {
+      color: white;
+      margin: 0;
+      font-family: 'Hind';
+      font-size: 200%;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-weight: 200; }
+    .Footer-Container .Footer-Details span {
+      display: inline-block;
+      color: #9c9c9c;
+      margin: 5px;
+      width: 100%;
+      font-family: 'Hind';
+      font-size: 100%;
+      font-weight: 100;
+      letter-spacing: 2px; }
+      .Footer-Container .Footer-Details span i {
+        display: none; }
+  .Footer-Container .Footer-CR {
+    display: inline-block;
+    text-align: center;
+    width: 100%;
+    margin-top: 50px;
+    margin-bottom: 5px;
+    color: white;
+    font-family: 'Hind';
+    font-size: 80%;
+    font-weight: 100;
+    letter-spacing: 1px; }
 
+/***************************
+ DEBUGGER
+***************************/
 .Debug {
   position: fixed;
   right: 0;
@@ -521,96 +650,3 @@ ROADMAP SECTION
   background-color: black;
   color: white;
   display: none; }
-
-/***************************
- CSS ANIMATED HAMBURGER
-***************************/
-/*
-*
-*
-*   NAME: CSS HAMBURGER
-*   AUTHOR: James Hanford
-*   CREATED: 06/11/2016
-*   VERSION: 1.0.0
-*
-*/
-/********************************
- VARIABLES
-********************************/
-/********************************
- PASSIVE STATE STYLING
-********************************/
-.Hamburger {
-  position: relative;
-  width: 30px;
-  height: 26px;
-  background-color: none;
-  cursor: pointer;
-  /*General positional styling HERE*/
-  display: block;
-  margin: 0 auto;
-  /* Center span element styling */
-  /* Pseudo element styling */
-  /* Offset Top and Bottom bar */ }
-  .Hamburger span {
-    background-color: #1f2831;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    width: 100%;
-    height: 2px;
-    top: 50%;
-    /* background transition animation */
-    transition: background 0.5s ease 0s; }
-  .Hamburger span::before, .Hamburger span::after {
-    background-color: #1f2831;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    width: 100%;
-    height: 2px;
-    content: '';
-    /* transition animation */
-    transition-duration: 0.5s, 0.5s;
-    transition-delay: 0.5s, 0s;
-    transition-property: top, transform; }
-  .Hamburger span::before {
-    top: -0.6rem; }
-  .Hamburger span::after {
-    top: 0.6rem; }
-
-/********************************
- HOVER STATE STYLING
-********************************/
-/* Not used currently
-
-.Hamburger:hover{
-	
-	span::before{
-        //top: -0.5rem;
-    }
-
-    span::after{
-        //top: 0.5rem;
-    }
-} */
-/********************************
- ACTIVE STATE STYLING
-********************************/
-.Hamburger-Active {
-  /* Rotate Top & Bottom */ }
-  .Hamburger-Active span {
-    background: none !important; }
-  .Hamburger-Active span::before, .Hamburger-Active span::after {
-    margin-top: 0 !important;
-    top: 0px !important;
-    /* Flip delay so rotate first */
-    transition-delay: 0s, 0.5s; }
-  .Hamburger-Active span::before {
-    transform: rotate(45deg); }
-  .Hamburger-Active span::after {
-    transform: rotate(-45deg); }

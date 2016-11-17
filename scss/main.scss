@@ -40,6 +40,7 @@ TYPOGRAPHY
 IMPORTS
 ***************************/
 @import "custom";
+@import "hamburger";
 
 /***************************
 NAVIGATION
@@ -298,15 +299,15 @@ ABOUT SECTION
 }
 
 .About-Centered > hr{
-    width: 60px;
-    height: 3px;
-    margin: 10px 0px;
-    
-    background-color: #1e80ab;
-    
-    display: inline-block;
-    
-    border: none;
+            width: 60px;
+        height: 2px;
+        margin: 10px 0px;
+
+        background-color: #1e80ab;
+
+        display: inline-block;
+
+        border: none;
 }
 
 .About-Headshot > img{
@@ -370,7 +371,7 @@ ROADMAP SECTION
     text-align: center;
     padding-top: 30px;
 
-    @include breakpoint(mobile) {
+    @include break(mobile) {
         text-align: left;
     }
 }
@@ -389,7 +390,7 @@ ROADMAP SECTION
     background: white;
     left: 50%;
 
-     @include breakpoint(mobile) {
+     @include break(mobile) {
         left: 25%;
      }
 }
@@ -405,7 +406,7 @@ ROADMAP SECTION
     box-shadow: 0px 0px 0px 8px rgba(255,255,255,0.2);
 
     //Mobile responsive, shift elements to right
-    @include breakpoint(mobile) {
+    @include break(mobile) {
         left: 25%;
     }
 }
@@ -428,7 +429,7 @@ ROADMAP SECTION
     background-color: white;
 
     //Mobile responsive, shift elements to right
-    @include breakpoint(mobile) {
+    @include break(mobile) {
         left: 25%;
     }
 }
@@ -441,7 +442,7 @@ ROADMAP SECTION
     text-align: right;
 
     //Mobile responsive, shift elements to right
-    @include breakpoint(mobile) {
+    @include break(mobile) {
         transform: translateX(0%);
         margin-right: 0px;
         margin-left: 180px;
@@ -455,7 +456,7 @@ ROADMAP SECTION
     text-align: left;
 
     //Mobile responsive, shift elements to right
-    @include breakpoint(mobile) {
+    @include break(mobile) {
         transform: translateX(0%);
         margin-left: 180px;
     }
@@ -467,7 +468,7 @@ ROADMAP SECTION
     margin-top: -5px;
 
     //Mobile responsive, shift elements to right
-    @include breakpoint(mobile) {
+    @include break(mobile) {
         max-width: 50%;
     }
 }
@@ -537,11 +538,11 @@ ROADMAP SECTION
             width: 33.333333%;
             
             //TABLET 
-            @include breakpoint(tablet) {
+            @include break(tablet) {
                 width: 50%;
             }
             //PHABLET & DOWN
-            @include breakpoint(phablet) {
+            @include break(phablet) {
                 width: 80%;
                 
                 float: none;
@@ -606,29 +607,67 @@ ROADMAP SECTION
                 align-items: center;
             }
         }
-    }//Item-Container    
+    }//END Item-Container    
 }
 
+/***************************
+ FOOTER SECTION
+***************************/
 .Footer-Container {
     background-color: $hex-hero-dark;
-    min-height: 250px;
+    padding-top: 50px;
     width: 100%; 
+    text-align: center;
+
+
+    .Footer-Details{
+       display: inline-block; 
+        h1{
+            color: white;
+            margin: 0;
+            font-family: 'Hind';
+            font-size: 200%;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-weight: 200; 
+        }
+        span{
+            i{
+                display: none;
+            }
+            //text-align: left;
+            display: inline-block;
+            color: #9c9c9c;
+            margin: 5px;
+            width: 100%;
+
+            font-family: 'Hind';
+            font-size: 100%;
+            font-weight: 100;
+            letter-spacing: 2px;
+        }
+    }
+
+    .Footer-CR{
+        display: inline-block;
+        text-align: center;
+        width: 100%;
+        margin-top: 50px;
+        margin-bottom: 5px;
+
+        color: white;
+        font-family: 'Hind';
+        font-size: 80%;
+        font-weight: 100;
+        letter-spacing: 1px;
+    }
+
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+/***************************
+ DEBUGGER
+***************************/
 .Debug{
     position: fixed;
     right: 0;
@@ -640,7 +679,4 @@ ROADMAP SECTION
     display: none;
 }
 
-/***************************
- CSS ANIMATED HAMBURGER
-***************************/
-@import "hamburger";
+

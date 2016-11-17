@@ -41,30 +41,28 @@ MULTIPURPOSE MIXINS
   filter: alpha(opacity=$opacity-ie); //IE8
 }
 
+
 /********************************
 BREAKPOINT MIXINS
 ********************************/
 
-@mixin breakpoint($point) {
-    @if $point == laptop {
-        @media (max-width: 70em) { @content ; }
-    }
-    @else if $point == tablet {
-     @media (max-width: 64em) { @content ; }
-  }
-   @else if $point == phablet {
-     @media (max-width: 50em)  { @content ; }
-  }
-  @else if $point == mobile {
-     @media (max-width: 37.5em)  { @content ; }
+//Map of breakpoints
+$breakpoints: (
+  mobile: 37.5rem,
+  phablet: 50rem,
+  tablet: 64rem,
+  laptop: 70rem
+);
 
-  }
+@mixin break($size) {
+    @media (max-width: map-get($breakpoints, $size)) { @content ; }
 }
 
 
 /********************************
 MULTIPURPOSE CLASSES
 ********************************/
+
 .left {
     float: left;
 }
