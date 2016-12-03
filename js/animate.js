@@ -9,10 +9,10 @@
 */
 
 /***************************
-ON DOC READY ~ START
+ ON DOC READY ~ START
 ***************************/
 $(document).ready(function () {
-    
+
     /*var Item_Height = .height();
     console.log('Item Height: ' + Item_Height);
     
@@ -26,23 +26,18 @@ $(document).ready(function () {
         $('.Nav-Container').toggleClass('translate-x-0');
     });
 
-
-    
+    //
     $('ul > li').hover(function () {
         $(this).addClass('List-Transition');
         $(this).toggleClass('List-Push');    
     });
     
+    // Portfolio hover 
     $('.Portfolio-Container > .Item-Contain > .Item').hover(function() {
-        console.log('Hovered');
         $(this).children(".Hover").toggleClass('show');    
     });
     
-    /*var portImgHeight = $('.Portfolio-Container > .Item-Contain > .Item > img').height();
-    
-    $('.Portfolio-Container > .Item-Contain > .Item').height(portImgHeight);*/
-    
-    
+    /* Nav scroll to section */
     $('ul > li:nth-child(1)').click(function() {
         scrollToAnchor('about');
     });
@@ -55,57 +50,66 @@ $(document).ready(function () {
         scrollToAnchor('portfolio');
     });
 
-    
-    
+    $('ul > li:nth-child(4)').click(function() {
+        scrollToAnchor('footer');
+    });  
+
 });
 /***************************
-ON DOC READY ~ END
+ ON DOC READY ~ END
 ***************************/
 
+/***************************
+ ON WINDOW SCROLL ~ START
+***************************/
 $(window).scroll(function (event) {
     var scroll = $(window).scrollTop();
     
     $('.Debug > span > span').replaceWith('<span>' + scroll + '</span>');
 });
+/***************************
+ ON WINDOW SCROLL ~ END
+***************************/
 
+/***************************
+ ON KEY DOWN ~ START
+***************************/
 $(document).keydown(function(e) {
+    var scrollvalue = $(window).scrollTop();
+    var FromTop_Landing = $('.Landing-Container').height();
+    var FromTop_About = FromTop_Landing + $('.About-Container').height();
+    var FromTop_Timeline = FromTop_About + $('.Roadmap-Container').height();
+    var FromTop_Port = FromTop_Timeline + $('.Portfolio-Container').height();
+
     switch(e.which) {
         
-        //UP EVENT
+        //ARROW UP EVENT
         case 38:
-            var scrollvalue = $(window).scrollTop();
-            var FromTop_Landing = $('.Landing-Container').height();
-            var FromTop_About = FromTop_Landing + $('.About-Container').height();
-            var FromTop_Timeline = FromTop_About + $('.Roadmap-Container').height();
-            var FromTop_Port = 0;
-            
             //Within Landing/About Sections
             if(scrollvalue <= FromTop_Landing){
                 scrollToAnchor('top');
             }else{
-                //Within About Section
+                //Scroll Up to About from Timeline
                 if(scrollvalue <= FromTop_About){
                     scrollToAnchor('about');
                 }else{
-                    //Within Timeline Section
+                    //Scroll Up to Timeline from Port
                     if(scrollvalue <= FromTop_Timeline){
-                    scrollToAnchor('timeline');
+                        scrollToAnchor('timeline');
                     }else{
-                        //TODO: Any extra sections
+                        //Scroll Up to Port from Footer
+                        if(scrollvalue <= FromTop_Port){
+                            scrollToAnchor('portfolio');
+                        }
                     }     
                 }
             }
             
         break;
 
-        //DOWN EVENT
+        //ARROW DOWN EVENT
         case 40:
-            var scrollvalue = $(window).scrollTop();
-            var FromTop_Landing = $('.Landing-Container').height();
-            var FromTop_About = FromTop_Landing + $('.About-Container').height();
-            var FromTop_Timeline = FromTop_About + $('.Roadmap-Container').height();
-            var FromTop_Port = 0;
-            
+
             //Within Landing Section
             if(scrollvalue < FromTop_Landing){
                 scrollToAnchor('about');
@@ -116,9 +120,11 @@ $(document).keydown(function(e) {
                 }else{
                     //Within Timeline Section
                     if(scrollvalue < FromTop_Timeline){
-                    scrollToAnchor('portfolio');
+                        scrollToAnchor('portfolio');
                     }else{
-                        //TODO: Any extra sections
+                        if(scrollvalue < FromTop_Port){
+                        scrollToAnchor('footer');
+                        }   
                     }
                 }    
             }
@@ -129,10 +135,12 @@ $(document).keydown(function(e) {
     }
     e.preventDefault(); // prevent the default action (scroll / move caret)
 });
-
+/***************************
+ ON KEY DOWN ~ END
+***************************/
 
 /***************************
-FUNCTIONS
+ FUNCTIONS
 ***************************/
 /*
 *

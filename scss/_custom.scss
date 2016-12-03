@@ -48,8 +48,8 @@ BREAKPOINT MIXINS
 
 //Map of breakpoints
 $breakpoints: (
-  mobile: 37.5rem,
-  phablet: 50rem,
+  mobile: 25.5rem,
+  phablet: 38rem,
   tablet: 64rem,
   laptop: 70rem
 );
@@ -58,11 +58,21 @@ $breakpoints: (
     @media (max-width: map-get($breakpoints, $size)) { @content ; }
 }
 
+@mixin breakh($size){
+  @media (max-height: map-get($breakpoints, $size)) { @content ; }
+}
+
+
+@mixin orientation($or) {
+    @media (orientation: $or) { @content ; }
+}
+
 
 /********************************
 MULTIPURPOSE CLASSES
 ********************************/
 
+//Element Floating
 .left {
     float: left;
 }
@@ -95,7 +105,7 @@ MULTIPURPOSE CLASSES
     display: block !important;
 }
 
-.display-inline-block{
+.display-inline-block {
     display: inline-block !important;
 }
 

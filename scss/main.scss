@@ -13,13 +13,19 @@ VARIABLES
 ***************************/
 
 /* COLOR SWATCHES */
+
+//Global Colors
 $hex-hero-dark: #1f2831;
 $hex-hero-blue: #1e80ab;
-$hex-hero-blue: #337ab7;
 
-$topbar-white: #f8f8f8;
-$topbar-icon-bg: #e2e2e2;
+//Social Colors
+$hex-linkedin: #0077b5;
+$hex-dribbble: #ea4c89;
+$hex-github: #999;
 
+//LANDING
+$hex-topbar-white: #f8f8f8;
+$hex-chev-down-blue: #337ab7;
 
 /***************************
 TYPOGRAPHY
@@ -34,7 +40,6 @@ TYPOGRAPHY
 @import url(http://fonts.googleapis.com/css?family=Playfair+Display);
 @import url(https://fonts.googleapis.com/css?family=Dosis:400,300,200,500,600,700,800);
 @import url('https://fonts.googleapis.com/css?family=Anton');
-
 
 /***************************
 IMPORTS
@@ -52,25 +57,25 @@ NAVIGATION
     left: 0;
     
     ul {
-      position: relative;
+        position: relative;
         list-style: none;
         margin: 0;
         padding: 0; 
         
         li {
-            background-color: #1e80ab;
+            background-color: $hex-hero-blue;
+            margin: 15px 0;
+            padding: 4px 8px;
+            float: left;
+            clear: left;
+            cursor:pointer;
+
             color: #1f2329;
             font-family: 'Open Sans';
             font-size: 90%;
             letter-spacing: 1px;
             font-weight: 600;
-            text-transform: uppercase;
-
-            padding: 4px 8px;
-            margin: 15px 0;
-            cursor:pointer;
-            float: left;
-            clear: left;     
+            text-transform: uppercase;   
         }
     }
 }
@@ -92,202 +97,19 @@ NAVIGATION
     padding-left: 30px !important;
 }
 
-/***************************
-LANDING SECTION
-***************************/
-.Landing-Container{
-    background-color: $hex-hero-dark;
-    height: 100vh;
-    width: 100%;   
-    overflow: hidden;
-    
-    svg{
-        transform: translateY(-95%);
-        position: absolute;
-        width: 100%;
-        
-        #Double_Chevron_Down{
-            fill: $hex-hero-blue !important;
-        }
-    }
-    
-    .Landing-TopBar{
-        background-color: $topbar-white;
-        height: 10vh;
-        width: 100%;
+@import 'landing';
 
-        display:flex;
-        justify-content:space-between;
-        align-items:center;
-
-        .TopBar-Left{
-            height: 100%;
-            width: 100px;
-            margin-right: auto;
-            display: table;
-            z-index: 800;
-            
-            .Icon-Contain{
-                display: table-cell;
-                text-align: center;
-                vertical-align: middle;
-                
-                i{
-                    color: $hex-hero-dark;
-                    display: inline-block;
-                    padding: 10px;
-                    font-size: 150%;
-                    cursor: pointer;
-                }
-                i:hover{
-                    background-color: $hex-hero-dark;
-                    color: white;
-                }
-            }
-        }
-        
-        .TopBar-Center{
-            height: 10%;
-            width: 100%;
-            position: absolute;
-            display: table;
-            width: 100%;
-            
-            .Title-Contain{
-                display: table-cell;
-                text-align: center;
-                vertical-align: middle;
-                
-                h1{
-                    color: $hex-hero-dark;
-                    font-family: 'Roboto';
-                    font-size: 100%;
-                    letter-spacing: 15px;
-                    text-transform: uppercase;
-                    font-weight: 400;
-                    display: inline-block;
-                    
-                    &:nth-child(2){
-                        transform: translatex(40%);
-                        margin-right: auto;
-                    }
-                    
-                } 
-            }
-            
-            svg{
-                transform: scale(-50%);
-                transform: translateY(15%);
-            }
-            
-        }//TopBar-Center
-        
-        .TopBar-Right{
-            height: 100%;
-            width: 200px;
-            margin-left: auto;
-            text-align: center;
-            display: table;
-            z-index: 800;
-            
-            .Icon-Contain{
-                display: table-cell;
-                text-align: center;
-                vertical-align: middle;
-                
-                i{
-                    color: $hex-hero-dark;
-                    display: inline-block;
-                    padding: 8px;
-                    margin: 2px;
-                    font-size: 135%;
-                }
-                i:hover{
-                    color: #f8f8f8;
-                    cursor: pointer;
-                }
-                //LinkedIn
-                i:nth-child(1):hover{
-                    background-color: #0077b5;
-                }
-                //Dribbble Icon
-                i:nth-child(2):hover{
-                    background-color: #ea4c89;
-                }
-                //Github Icon
-                i:nth-child(3):hover{
-                    background-color: #999;
-                }
-                
-            }
-            
-        }//TopBar-Right
-        
-    }//Landing-Top-Bar
-    
-    .Landing-Splash{
-        height: 90%;
-        width: 100%;
-
-        display:flex;
-        justify-content:center;
-        align-items:center;
-        
-        h2{
-            color: #f1f1ef;
-
-            font-family: 'Source Sans Pro';
-            font-size: 500%;
-            letter-spacing: 15px;
-            text-transform: uppercase;
-            
-            span{
-            
-            }
-        }
-    }
-    
-}//Landing-Container
-
-/* ANIMATION & HELPERS */
-
-//Used to make underscore blink
-.blink {
-  animation: blink-animation 2s steps(2, start) infinite;
-  -webkit-animation: blink-animation 2s steps(2, start) infinite;
-}
-@keyframes blink-animation {
-  to {
-    visibility: hidden;
-  }
-}
-@-webkit-keyframes blink-animation {
-  to {
-    visibility: hidden;
-  }
-}
-
-//Used to make arrow bounce
-.bounce{
-    animation: bounce-animation 2s infinite;
-}
-@keyframes bounce-animation {
-    0% {margin-top: 0px;}
-    50% {margin-top: -20px;}
-    100% {margin-top: 0px;}
-}
 
 /***************************
 ABOUT SECTION
 ***************************/
 .About-Container{
+    display: table;
     width: 100%;
     min-height: 110vh;
     
     background-color: #f8f8f8;
-    text-align: center;
-    
-    display: table;
+    text-align: center;   
 }
 
 .About-Centered{
@@ -303,7 +125,7 @@ ABOUT SECTION
         height: 2px;
         margin: 10px 0px;
 
-        background-color: #1e80ab;
+        background-color: $hex-hero-blue;
 
         display: inline-block;
 
@@ -317,6 +139,11 @@ ABOUT SECTION
     filter: grayscale(100%);
     
     box-shadow: 0px 5px 30px #888;
+
+    //MOBILE 
+    @include break(mobile) {
+        width: 200px;
+    }
 }
 
 h4{
@@ -339,6 +166,12 @@ h4{
     color: #a5a8ac;
     font-size: 140%;
     font-weight: 100;
+
+    //MOBILE 
+    @include break(mobile) {
+        padding: 0 10%;
+        font-size: 100%;
+    }
 }
 
 /***************************
@@ -362,6 +195,12 @@ ROADMAP SECTION
     letter-spacing: 5px;
     text-transform: uppercase;
     font-weight: 600;
+
+    @include break(mobile) {
+        margin: 40px 40px;
+        margin-bottom: 0px;
+        font-size: 150%;
+    }
 }
 
 .Roadmap-Timeline{
@@ -373,6 +212,7 @@ ROADMAP SECTION
 
     @include break(mobile) {
         text-align: left;
+        padding-bottom: 40px;
     }
 }
 
@@ -445,7 +285,7 @@ ROADMAP SECTION
     @include break(mobile) {
         transform: translateX(0%);
         margin-right: 0px;
-        margin-left: 180px;
+        margin-left: 150px;
         text-align: left;
     }
 }
@@ -458,7 +298,7 @@ ROADMAP SECTION
     //Mobile responsive, shift elements to right
     @include break(mobile) {
         transform: translateX(0%);
-        margin-left: 180px;
+        //margin-left: 180px;
     }
 }
 
@@ -479,6 +319,10 @@ ROADMAP SECTION
     font-size: 120%;
     margin: 0;
     opacity: 0.2;
+
+    @include break(mobile) {
+        font-size: 100%;
+     }
 }
 
 .Event > h6{
@@ -488,6 +332,11 @@ ROADMAP SECTION
     font-size: 120%;
     margin: 0;
     font-weight: 400;
+
+    @include break(mobile) {
+        font-size: 100%;
+        font-family: 'Hind';
+    }
 }
 
 /***************************
@@ -499,6 +348,12 @@ ROADMAP SECTION
     background-color: white;
     text-align: center;
     display: table;
+
+    //MOBILE 
+    @include break(mobile) {
+        margin: 0;
+        margin-top: 40px;
+    }
     
     h1{
         color: #363b40;
@@ -510,6 +365,7 @@ ROADMAP SECTION
         letter-spacing: 2px;
         text-transform: uppercase;
         font-weight: 400;
+        padding: 0 20px;
     }
     
     hr{
@@ -517,7 +373,7 @@ ROADMAP SECTION
         height: 2px;
         margin: 30px 0px;
 
-        background-color: #1e80ab;
+        background-color: $hex-hero-blue;
 
         display: inline-block;
 
@@ -572,8 +428,14 @@ ROADMAP SECTION
                     margin: 0;
                     font-family: 'Open Sans';
                     font-weight: 300;
-                    font-size: 3rem;
-                    text-align: center;  
+                    font-size: 320%;
+                    text-align: center; 
+                    padding: 0 10px; 
+
+                    //MOBILE 
+                    @include break(mobile) {
+                        font-size: 200%;
+                    }
                 }
 
                 .Links{
@@ -587,7 +449,7 @@ ROADMAP SECTION
                         font-weight: 600;
                         text-decoration: none;
                         margin: 10px;
-                        border: 0.13rem solid white;
+                        //border: 0.13rem solid white;
                         display: inline-block;
                         padding: 10px 24px;
                         font-family: 'Open Sans';
@@ -615,48 +477,50 @@ ROADMAP SECTION
 ***************************/
 .Footer-Container {
     background-color: $hex-hero-dark;
-    padding-top: 50px;
     width: 100%; 
+    padding-top: 50px;
     text-align: center;
-
 
     .Footer-Details{
        display: inline-block; 
+
         h1{
-            color: white;
             margin: 0;
+
+            color: white;
             font-family: 'Hind';
             font-size: 200%;
             letter-spacing: 2px;
             text-transform: uppercase;
             font-weight: 200; 
         }
-        span{
-            i{
-                display: none;
-            }
-            //text-align: left;
-            display: inline-block;
-            color: #9c9c9c;
-            margin: 5px;
-            width: 100%;
 
+        span{
+            display: inline-block;
+            width: 100%;
+            margin: 5px;
+
+            color: #b7b7b7;
             font-family: 'Hind';
             font-size: 100%;
             font-weight: 100;
             letter-spacing: 2px;
+
+            i{
+                display: none;
+            }   
         }
     }
 
     .Footer-CR{
         display: inline-block;
-        text-align: center;
         width: 100%;
         margin-top: 50px;
-        margin-bottom: 5px;
+        margin-bottom: 10px;
+        text-align: center;
 
         color: white;
-        font-family: 'Hind';
+        font-family: 'Open Sans';
         font-size: 80%;
         font-weight: 100;
         letter-spacing: 1px;
@@ -664,6 +528,35 @@ ROADMAP SECTION
 
 }
 
+/***************************
+ ANIMATION CLASSES
+***************************/
+
+//Used to make underscore blink
+.blink {
+  animation: blink-animation 2s steps(2, start) infinite;
+  -webkit-animation: blink-animation 2s steps(2, start) infinite;
+}
+@keyframes blink-animation {
+  to {
+    visibility: hidden;
+  }
+}
+@-webkit-keyframes blink-animation {
+  to {
+    visibility: hidden;
+  }
+}
+
+//Used to make arrow bounce
+.bounce{
+    animation: bounce-animation 2s infinite;
+}
+@keyframes bounce-animation {
+    0% {margin-top: 0px;}
+    50% {margin-top: -20px;}
+    100% {margin-top: 0px;}
+}
 
 /***************************
  DEBUGGER

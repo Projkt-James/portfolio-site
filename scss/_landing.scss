@@ -1,0 +1,320 @@
+/*
+*
+*
+*   NAME: LANDING SECTION SCSS STYLING
+*   AUTHOR: James Hanford
+*   CREATED: 03/12/2016
+*   VERSION: 1.0.0
+*
+*/
+
+/***************************
+ CONTAINER
+***************************/
+.Landing-Container{
+    background-color: $hex-hero-dark;
+    height: 100vh;
+    width: 100%;   
+    overflow: hidden;
+    
+    svg{
+        transform: translateY(-95%);
+        position: absolute;
+        width: 100%;
+
+        //MOBILE 
+        @include break(mobile) {
+            transform: translateY(-85%);
+        }
+        
+        #Double-Chevron-Down{
+            fill: $hex-chev-down-blue !important;
+        }
+    }
+    
+    /***************************
+     TOPBAR CONTAINER
+    ***************************/
+    .Landing-TopBar{
+        background-color: $hex-topbar-white;
+        height: 10vh;
+        width: 100%;
+
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+
+        /* MEDIA QUERIES */
+        /* ORIENTATION: PORTRAIT */
+        @include orientation(portrait){ 
+            @include break(phablet){
+                background-color: cyan;
+            }
+            @include break(mobile){
+                background-color: red;
+            }
+        }
+
+        /* ORIENTATION: LANDSCAPE */
+        @include orientation(landscape){
+            @include breakh(phablet){
+                background-color: blue;
+                height: 16vh;
+            }
+            @include breakh(mobile){
+                background-color: orange;
+                height: 15vh;
+            }
+        } 
+
+        /***************************
+         NAVBAR - LEFT
+        ***************************/
+        .TopBar-Left{
+            height: 100%;
+            width: 100px;
+            display: table;
+            margin-right: auto;
+            
+            .Icon-Contain{
+                display: table-cell;
+                text-align: center;
+                vertical-align: middle;
+                
+                .Hamburger{
+
+                    /* MEDIA QUERIES */
+                    /* ORIENTATION: PORTRAIT */
+                    @include orientation(portrait){ 
+                        @include break(phablet) {
+                            width: 26px ;
+                            margin: 0;
+                            margin-left: 20px;
+                        }
+                    }
+
+                    /* ORIENTATION: LANDSCAPE */
+                    @include orientation(landscape){
+                        @include breakh(phablet) {
+                            width: 26px ;
+                            margin: 0;
+                            margin-left: 20px;
+                        }
+                    } 
+                }
+
+            }
+        }/* END TOPBAR - CENTER */
+        
+        /***************************
+         NAVBAR - CENTER
+        ***************************/
+        .TopBar-Center{
+            display: inline-block;
+            text-align: center;
+            //width: %;
+
+            //PORTRAIT
+                @include orientation(portrait){ 
+                    @include break(phablet) {
+                        width: 20%
+                    }
+                    @include break(mobile) {
+                        width: 20%;
+                    }
+                }
+
+                //LAND SCAPE
+                @include orientation(landscape){
+                    @include breakh(phablet) {
+                        width: 50%;
+                    }
+                    @include breakh(mobile) {
+                        width: 50%;
+                    }
+                } 
+
+            .Title-Contain{
+                display: inline-block;
+                text-align: center;
+                vertical-align: middle;
+
+                &:nth-child(1){
+                    text-align: right;
+                }
+                &:nth-child(2){
+                    text-align: left;
+                }
+
+                //MOBILE 
+                @include break(phablet) {
+                    display: none;
+                }
+
+                //LAND SCAPE
+                @include orientation(landscape){
+                    @include breakh(phablet) {
+                        display: none;
+                    }
+                }
+
+                h1{
+                    display: inline-block;
+
+                    color: $hex-hero-dark;
+                    font-family: 'Roboto';
+                    font-size: 100%;
+                    letter-spacing: 15px;
+                    text-transform: uppercase;
+                    font-weight: 400;
+                } 
+            }
+
+            .Logo-Contain{
+                text-align: center;
+                display:inline-block;
+                vertical-align:middle;
+
+                width: 16%;
+
+                //PORTRAIT
+                @include orientation(portrait){ 
+                    @include break(phablet) {
+                        width: 60%;
+                    }
+                    @include break(mobile) {
+                        width: 60%;
+                    }
+                }
+
+                //LAND SCAPE
+                @include orientation(landscape){
+                    @include breakh(phablet) {
+                        width: 10%;
+                    }
+                    @include breakh(mobile) {
+                        //width: 10%;
+                    }
+                } 
+
+                svg{
+                    display: inline-block;
+                    text-align: center;
+                    vertical-align: middle;
+                    width: 100%;
+                    position: relative;
+                    transform: translateY(0%);
+
+                }
+            }     
+        }/* END TOPBAR - CENTER */
+        
+        /***************************
+         TOPBAR - RIGHT
+        ***************************/
+        .TopBar-Right{
+            z-index: 800;
+            max-height: 100%;
+            margin-left: auto;
+            margin-right: 2%;
+            text-align: center;
+            
+            /* SOCIAL ICON CONTAINER */
+            .Icon-Contain{
+                display: table;
+                text-align: center;
+                vertical-align: middle;
+                
+                /* ICON HYPERLINK TAG */
+                a{
+                    display:table-cell;
+                    vertical-align:middle;
+                    
+                    i{
+                        color: $hex-hero-dark;
+                        margin: 2px;
+                        padding: 8px;
+                        font-size: 135%;
+                    }
+
+                    i:hover{
+                        color: #f8f8f8;
+                        cursor: pointer;
+                    }
+
+                    /***************************
+                     SOCIAL ICON - COLORS
+                    ***************************/
+                    /* LinkedIn Icon */
+                    .fa-linkedin:hover{
+                        background-color: $hex-linkedin;
+                    }
+                    /* Dribbble Icon */
+                    .fa-dribbble:hover{
+                        background-color: $hex-dribbble;
+                    }
+                    /* Github Icon */
+                    .fa-github:hover{
+                        background-color: $hex-github;
+                    }
+                }   
+            
+            }/* END SOCIAL ICON CONTAINER */     
+        }/* END TOPBAR - RIGHT */
+
+    }/* END TOPBAR CONTAINER */
+    
+    /***************************
+     SPLASH CONTAINER
+    ***************************/
+    .Landing-Splash{
+        height: 90%;
+        width: 100%;
+
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        
+        h2{
+            color: #f1f1ef;
+            font-family: 'Source Sans Pro';
+            font-size: 500%;
+            letter-spacing: 15px;
+            text-transform: uppercase;
+
+                //PORTRAIT
+                @include orientation(portrait){ 
+                    @include break(phablet) {
+                        font-size: 260%;
+                        letter-spacing: 8px;
+                    }
+                    @include break(mobile) {
+                        font-size: 250%;
+                        letter-spacing: 2px;
+                    }
+                }
+
+                //LAND SCAPE
+                @include orientation(landscape){
+                    @include breakh(phablet) {
+                        transform: translateY(-25%);
+                        font-size: 380%;
+                        letter-spacing: 15px;
+                    }
+                    @include breakh(mobile) {
+                        transform: translateY(-25%);
+                        font-size: 360%;
+                        letter-spacing: 8px;
+                    }
+                } 
+        }
+    }/* END SPLASH CONTAINER */
+
+    /***************************
+     CHEVRON CONTAINER
+    ***************************/
+    .Landing-Chevron{
+        //TODO REWORk CHEVRON
+    }/* END CHEVRON CONTAINER */
+
+}/* END CONTAINER */
