@@ -22,10 +22,11 @@ $bar-height: 2px;
  PASSIVE STATE STYLING
 ********************************/
 .Hamburger{
+	background-color: $hamburger-background-color;
     position: relative;
     width: $hamburger-width;
     height: $hamburger-height;
-    background-color: $hamburger-background-color;
+    
     cursor: pointer;
 
     /*General positional styling HERE*/

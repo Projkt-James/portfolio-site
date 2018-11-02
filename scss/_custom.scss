@@ -9,7 +9,7 @@
 */
 
 /********************************
-MULTIPURPOSE MIXINS
+ MULTIPURPOSE MIXINS
 ********************************/
 
 @mixin translate-y($val) {
@@ -115,4 +115,8 @@ body{
     -webkit-font-smoothing: antialiased;
     text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
 }
-//END CUSTOM.SCSS
+
+html, body, #body2{
+    height: 100%;
+    min-height: 100%;
+}
