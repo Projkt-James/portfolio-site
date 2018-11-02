@@ -272,22 +272,12 @@ NAVIGATION
         ***************************/
     /* END TOPBAR - RIGHT */ }
 
-@media (orientation: portrait) and (max-width: 38rem) {
-  .Landing-Container .Landing-TopBar {
-    background-color: cyan; } }
-
-@media (orientation: portrait) and (max-width: 25.5rem) {
-  .Landing-Container .Landing-TopBar {
-    background-color: red; } }
-
 @media (orientation: landscape) and (max-height: 38rem) {
   .Landing-Container .Landing-TopBar {
-    background-color: blue;
     height: 16vh; } }
 
 @media (orientation: landscape) and (max-height: 25.5rem) {
   .Landing-Container .Landing-TopBar {
-    background-color: orange;
     height: 15vh; } }
     .Landing-Container .Landing-TopBar .TopBar-Left {
       height: 100%;

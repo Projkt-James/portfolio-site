@@ -48,21 +48,21 @@
         /* ORIENTATION: PORTRAIT */
         @include orientation(portrait){ 
             @include break(phablet){
-                background-color: cyan;
+                //background-color: cyan;
             }
             @include break(mobile){
-                background-color: red;
+                //background-color: red;
             }
         }
 
         /* ORIENTATION: LANDSCAPE */
         @include orientation(landscape){
             @include breakh(phablet){
-                background-color: blue;
+                //background-color: blue;
                 height: 16vh;
             }
             @include breakh(mobile){
-                background-color: orange;
+                //background-color: orange;
                 height: 15vh;
             }
         } 
