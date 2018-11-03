@@ -526,7 +526,7 @@ ROADMAP SECTION
       font-size: 150%; } }
 
 .Roadmap-Timeline {
-  min-height: 90vh;
+  min-height: 110vh;
   position: relative;
   overflow: hidden;
   text-align: center;
@@ -739,6 +739,7 @@ ROADMAP SECTION
   background-color: #1f2831;
   width: 100%;
   padding-top: 50px;
+  padding-bottom: 30px;
   text-align: center; }
   .Footer-Container .Footer-Details {
     display: inline-block; }
