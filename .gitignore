@@ -3,3 +3,5 @@
 /assets/bootstrap
 /assets/font-awesome
 /assets/fonts
+/css/
+!/css/vendor/

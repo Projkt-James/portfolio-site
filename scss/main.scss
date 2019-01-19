@@ -30,15 +30,15 @@ $hex-chev-down-blue: #337ab7;
 /***************************
 TYPOGRAPHY
 ***************************/
-@import url(http://fonts.googleapis.com/css?family=Hind:400,300,500);
-@import url(http://fonts.googleapis.com/css?family=Roboto:400,100,300);
-@import url(http://fonts.googleapis.com/css?family=Roboto+Slab:400,300,100,700);
-@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900);
-@import url(http://fonts.googleapis.com/css?family=Open+Sans:300,700,800,400,600);
-@import url(http://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700);
-@import url(http://fonts.googleapis.com/css?family=PT+Sans:400,700);
-@import url(http://fonts.googleapis.com/css?family=Playfair+Display);
-@import url(https://fonts.googleapis.com/css?family=Dosis:400,300,200,500,600,700,800);
+@import url('http://fonts.googleapis.com/css?family=Hind:400,300,500');
+@import url('http://fonts.googleapis.com/css?family=Roboto:400,100,300');
+@import url('http://fonts.googleapis.com/css?family=Roboto+Slab:400,300,100,700');
+@import url('http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900');
+@import url('http://fonts.googleapis.com/css?family=Open+Sans:300,700,800,400,600');
+@import url('http://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700');
+@import url('http://fonts.googleapis.com/css?family=PT+Sans:400,700');
+@import url('http://fonts.googleapis.com/css?family=Playfair+Display');
+@import url('https://fonts.googleapis.com/css?family=Dosis:400,300,200,500,600,700,800');
 @import url('https://fonts.googleapis.com/css?family=Anton');
 
 /***************************
@@ -46,6 +46,12 @@ IMPORTS
 ***************************/
 @import "custom";
 @import "hamburger";
+
+/* Apple iOS Mobile Link Color Fix */
+// Removes default ugly blue that shows up on iOS phone number links
+a[href^="tel"] {
+    color: inherit; /* Inherit text color of parent element. */
+  }
 
 /***************************
 NAVIGATION
