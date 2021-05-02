@@ -7,11 +7,6 @@
         "build": "node_modules/.bin/node-sass -x -o ./css/ ./scss/"
     },
     "devDependencies": {
-        "gulp": "^3.9.1",
-        "gulp-autoprefixer": "^3.1.1",
-        "gulp-notify": "^2.2.0",
-        "gulp-plumber": "^1.1.0",
-        "gulp-sass": "^2.3.2",
         "node-sass": "5.0.0",
         "yarn": "^1.22.10"
     }
