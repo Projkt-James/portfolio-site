@@ -3,8 +3,9 @@
     "version": "0.5.1",
     "author": "James Hanford",
     "scripts": {
+        "build": "scripts/build.sh",
         "scss-watch": "node_modules/.bin/node-sass -x -o ./css/ ./scss/ --watch",
-        "build": "node_modules/.bin/node-sass -x -o ./css/ ./scss/"
+        "scss-build": "node_modules/.bin/node-sass -x -o ./css/ ./scss/"
     },
     "devDependencies": {
         "node-sass": "5.0.0",
