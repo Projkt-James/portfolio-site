@@ -1,0 +1,37 @@
+name: Production Deploy
+
+# Workflow triggers
+on:
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# Workflow jobs
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    # Steps to be executed as part of the job
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Setup Node14 environment
+        uses: actions/setup-node@v2.1.5
+        with:
+          node-version: '14'
+
+      - name: Install Node Modules
+        run: yarn install
+
+      - name: Build Site
+        run: yarn build
+
+      - name: S3 Bucket Deploy
+        uses: jakejarvis/s3-sync-action@v0.5.1
+        with: 
+          args: --acl public-read --follow-symlinks --delete
+        env:
+          AWS_S3_BUCKET: ${{ secrets.S3_PROD_BUCKET }}
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_PROD_KEY }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_PROD_SECRET }}
+          AWS_REGION: 'ap-southeast-2'
+          SOURCE_DIR: 'build'
