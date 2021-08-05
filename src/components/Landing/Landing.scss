@@ -1,0 +1,24 @@
+@import "../../styles/main.scss";
+
+#landing-splash {
+    background-color: $hex-hero-dark;
+    height: calc(100vh - 85px);
+    padding-top: 85px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    h1 {
+        color: #F1F2EF;
+        font-family: 'Source Sans Pro';
+        font-size: 500%;
+        letter-spacing: 15px;
+        text-transform: uppercase;
+
+        .blink {
+            animation: blink-animation 2s steps(2, start) infinite;
+            -webkit-animation: blink-animation 2s steps(2, start) infinite;
+        }
+    }
+}

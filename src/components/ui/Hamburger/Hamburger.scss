@@ -1,0 +1,104 @@
+@import "../../../styles/main.scss";
+
+@mixin toolkitHamburger($props-map: (
+    // Base hamburger styling for when map isn't included
+    color: $hex-hero-dark,
+    background-color: none,
+    width: 30px,
+    height: 24px,
+    bar-height: 2px,
+    bar-spacing: 0.68em,
+    bar-radius: 2px,
+    data-attr: "toolkit-hamburger"
+)) {
+    
+    & {
+        background: map-get($props-map, background-color);
+        position: relative;
+
+        width: map-get($props-map, width);
+        height: map-get($props-map, height);
+
+        display: block;
+        margin: 0 auto;
+
+        cursor: pointer;
+
+        span, span:before, span:after {
+
+            background: map-get($props-map, color);
+
+            position: absolute;
+            // TODO: Possibly could write a positioning helper function to reduce # lines
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+
+            width: 100%;
+            height: map-get($props-map, bar-height);
+            border-radius: map-get($props-map, bar-radius);
+        }
+
+        span {
+            top: 50%;
+            transition: background-color 0.2s ease 0s;
+
+            &:before, &:after {
+                // TODO: Support custom animation timings in props map
+                content: '';
+                transition: top 0.2s 0.2s ease-out, transform 0.2s 0s ease-out;
+            }
+
+            $bar-spacing: map-get($props-map, bar-spacing);
+            &:before {
+                top: -($bar-spacing);
+            }
+
+            &:after {
+                top: $bar-spacing;
+            }
+        }
+    }
+
+    $data-attr: map-get($props-map, data-attr);
+    &[#{$data-attr}="active"] {
+        span {
+            background: none !important;
+        
+            &:before, &:after {
+                top: 0px !important;
+
+                // Flip delay so rotate occurs first 
+                transition: top 0.2s 0s ease-out, transform 0.2s 0.2s ease-out;
+            }
+
+            &:before {
+                transform: rotate(45deg);
+            }
+
+            &:after {
+                transform: rotate(-45deg);
+            }
+        }
+    }
+
+    //Content at bottom allows base values to be overridden
+    & {
+        @content;
+    }
+}
+
+#ui-hamburger {
+    z-index: 9999;
+    padding: 15px;
+    cursor: pointer;
+
+    div {
+        @include toolkitHamburger() {
+            // Can override base styling here
+        }
+    }
+}
+
+

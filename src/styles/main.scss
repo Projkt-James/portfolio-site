@@ -1,0 +1,41 @@
+/* FONTS */
+@import url('http://fonts.googleapis.com/css?family=Hind:400,300,500');
+@import url('http://fonts.googleapis.com/css?family=Roboto:400,100,300');
+@import url('http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900');
+
+/* COLOR SWATCHES */
+
+// Global Colors
+$hex-hero-dark: #1f2831;
+$hex-hero-blue: #0AB6FF;
+$hex-topbar-white: #f8f8f8;
+$hex-nav-grey: #d5d5d5;
+
+$hex-chev-down-blue: #337ab7;
+$mess-around-green: #0AFF56;
+
+@mixin transition($args...) {
+    -webkit-transition: $args;
+    -moz-transition: $args;
+    -ms-transition: $args;
+    -o-transition: $args;
+    transition: $args;
+}
+
+@keyframes blink-animation {
+    to {
+        visibility: hidden;
+    }
+}
+@-webkit-keyframes blink-animation {
+    to {
+        visibility: hidden;
+    }
+}
+
+@mixin border-radius($radius) {
+    -webkit-border-radius: $radius;
+    -moz-border-radius: $radius;
+    -o-border-radius: $radius;
+    border-radius: $radius;
+}

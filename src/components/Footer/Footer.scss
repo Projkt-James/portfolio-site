@@ -1,0 +1,43 @@
+@import "../../styles/main.scss";
+
+footer {
+    width: 100%;
+    padding-top: 50px;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: $hex-hero-dark;
+    color: white;
+
+    .details {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        h2 {
+            font-family: 'Hind', sans-serif;
+            font-size: 200%;
+            font-weight: 400;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        span {
+            color: #b7b7b7;
+            font-family: 'Hind', sans-serif;
+            font-size: 100%;
+            font-weight: 100;
+            letter-spacing: 2px;
+        }
+    }
+    > span {
+        margin-top: 50px;
+        padding: 10px 0;
+
+        color: white;
+        font-size: 80%;
+        font-family: 'Open Sans', sans-serif;
+        font-weight: 100;
+    }
+}

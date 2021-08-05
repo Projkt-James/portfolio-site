@@ -1,16 +1,19 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { TopBar } from './components/TopBar/TopBar';
+import { LandingSection } from './components/Landing/Landing';
+import { AboutSection } from './components/About/About';
+import { RoadMap } from './components/RoadMap/RoadMap';
+import { Projects } from './components/Projects/Projects';
+import { Footer } from './components/Footer/Footer';
 
 function App() {
     return (
         <div className="App">
-            <header className="App-header">
-                <img src={logo} className="App-logo" alt="logo" />
-                <p>
-                    Create React App base.
-                </p>
-            </header>
+            <TopBar />
+            <LandingSection />
+            <AboutSection />
+            <RoadMap />
+            <Projects />
+            <Footer />
         </div>
     );
 }
