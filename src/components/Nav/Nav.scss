@@ -1,0 +1,61 @@
+@import "../../styles/main.scss";
+
+@keyframes pulse-animation {
+    0%, 100% {
+        padding-left: 15px;
+    }
+    50% {
+        padding-left: 30px;
+    }
+}
+
+nav {
+    position: fixed;
+    z-index: 10;
+    left: 0;
+    height: 100vh;
+
+    display: flex;
+    align-items: center;
+    transform: translateX(-100%);
+    @include transition(transform 0.3s ease);
+
+    &[nav-state="active"] {
+        transform: translateX(0%);
+    }
+
+    ul {
+        position: relative;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+
+        li a {
+            cursor: pointer;
+            background: $hex-hero-blue;
+            margin: 15px 0;
+            padding: 6px 15px;
+            float: left;
+            clear: left;
+            text-decoration: none;
+
+            color: $hex-hero-dark;
+            font-family: 'Roboto';
+            font-size: 80%;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            @include transition(padding 0.2s ease);
+
+            &[link-state="active"] {
+                background: #dedede;
+                animation: pulse-animation 0.5s ease 1;
+            }
+
+            &:hover {
+                padding-left: 30px;
+            }
+        }
+    }
+}
+

@@ -1,0 +1,90 @@
+@import "../../styles/main.scss";
+
+$hex-timeline-blue: #007cb0;
+
+#roadmap-section {
+    width: 100%;
+    min-height: 100vh;
+    background: $hex-hero-dark;
+    text-align: center;
+    display: table;
+
+    h1 {
+        color: white;
+        margin: 100px 0px;
+        font-family: 'Hind', sans-serif;
+        font-size: 198%;
+        letter-spacing: 5px;
+        text-transform: uppercase;
+        font-weight: 600;
+    }
+
+    .timeline-wrapper {
+        #start-point {
+            width: 26px;
+            height: 26px;
+            border-radius: 0;
+            background: none;
+            transform: rotate(45deg);
+            left: calc(50% - 18px);
+            border: 5px solid $hex-timeline-blue;
+            background: $hex-hero-blue;
+            box-shadow: 0px 0px 0px 6px rgba(30, 128, 171, 0.28);
+        }
+
+        .event-wrapper {
+            .point {
+                border-radius: 0;
+                transform: rotate(45deg);
+                background: #1f2831;
+                border: 2px solid white;
+                left: calc(50% - 9px);
+                @include transition(color 0.5s ease);
+            }
+            .content-wrapper {
+                div:first-child {
+                    margin-top: 0;
+                }
+                div {
+                    margin-top: 50px;
+                }
+                span, h2 {
+                    @include transition(opacity 0.5s ease);
+                }
+                span {
+                    opacity: 0.2;
+                    margin: 0;
+                    color: white;
+                    font-family: 'PT Sans', sans-serif;
+                    font-size: 90%;
+                }
+                h2 {
+                    opacity: 0.7;
+                    margin: 0;
+                    color: white;
+                    font-family: 'Open Sans', sans-serif;
+                    font-size: 120%;
+                    font-weight: 400;
+                    text-transform: uppercase;
+                }
+            }
+
+            &[event-state="active"] {
+                .point {
+                    border-color: $hex-hero-blue;
+                    box-shadow: 0px 0px 0px 4px rgba(30, 128, 171, 0.28);
+                }
+                .content-wrapper {
+                    span {
+                        opacity: 1;
+                        color: $hex-hero-blue;
+                    }
+                    h2 {
+                        opacity: 1;
+                        color: white;
+                    }
+                }
+            }
+        }
+    }
+}
