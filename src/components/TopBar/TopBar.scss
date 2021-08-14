@@ -14,6 +14,9 @@
     @include breakTarget(ipad-pro, (max-height: height, max-width: width), landscape) {
         height: 15vh;
     }
+    @include breakTarget(iphone6-8-plus, (max-height: height, max-width: width), portrait) {
+        height: 8vh;
+    }
 
     .left-container {
         width: 100px;

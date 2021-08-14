@@ -10,6 +10,10 @@
     align-items: center;
     justify-content: center;
 
+    @include breakTarget(ipad, (max-height: height, max-width: width), both) {
+        min-height: 100vh;
+    }
+
     img {
         width: 250px;
         margin: 20px;
