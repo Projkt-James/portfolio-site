@@ -86,5 +86,20 @@
                 display: flex;
             }
         }
+
+        @include breakTarget(ipad, (max-height: height, max-width: width), portrait) {
+            .project-item {
+                width: 50%;
+            }
+        }
+        @include breakTarget(iphone6-8-plus, (max-height: height, max-width: width), portrait) {
+            align-items: center;
+            justify-content: center;
+
+            .project-item {
+                width: 80%;
+                margin: 20px 0;
+            }
+        }
     }
 }
