@@ -2,12 +2,13 @@
 
 #landing-splash {
     background-color: $hex-hero-dark;
-    height: calc(100vh - 85px);
-    padding-top: 85px;
+    height: 100vh;
+    padding-top: 10vh;
 
     display: flex;
     align-items: center;
     justify-content: center;
+    overflow: hidden;
 
     h1 {
         color: #F1F2EF;
@@ -19,6 +20,14 @@
         .blink {
             animation: blink-animation 2s steps(2, start) infinite;
             -webkit-animation: blink-animation 2s steps(2, start) infinite;
+        }
+    }
+
+    @include breakTarget(iphone6-8-plus, (max-height: height, max-width: width), portrait) {
+        h1 {
+            margin-top: 0;
+            font-size: 220%;
+            letter-spacing: 10px;
         }
     }
 }

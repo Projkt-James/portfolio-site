@@ -14,6 +14,8 @@ $hex-nav-grey: #d5d5d5;
 $hex-chev-down-blue: #337ab7;
 $mess-around-green: #0AFF56;
 
+@import "./sassQuery/sassQuery";
+
 @mixin transition($args...) {
     -webkit-transition: $args;
     -moz-transition: $args;
