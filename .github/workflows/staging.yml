@@ -10,7 +10,7 @@ on:
 
 jobs:
 
-  - job: BuildDeploySite
+  BuildDeploySite:
     displayName: Build & Deploy Site
     runs-on: ubuntu-latest
 
