@@ -1,4 +1,4 @@
-name: Staging Deploy
+name: (Staging) Build & Deploy
 
 # Workflow triggers
 on:
@@ -8,19 +8,17 @@ on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
-# Workflow jobs
 jobs:
-  build:
+
+  BuildDeploySite:
+    name: Build & Deploy to S3 Bucket
     runs-on: ubuntu-latest
 
-    # Steps to be executed as part of the job
     steps:
-      - uses: actions/checkout@v2
-
-      - name: Setup Node14 environment
-        uses: actions/setup-node@v2.1.5
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
         with:
-          node-version: '18'
+          node-version: 18
 
       - name: Install Node Modules
         run: yarn install
@@ -33,7 +31,7 @@ jobs:
         with: 
           args: --acl public-read --follow-symlinks --delete
         env:
-          AWS_S3_BUCKET: ${{ secrets.S3_STAGING_BUCKET }}
+          AWS_S3_BUCKET: ${{ vars.S3_STAGING_BUCKET }}
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_STAGING_KEY }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_STAGING_SECRET }}
           AWS_REGION: 'ap-southeast-2'
