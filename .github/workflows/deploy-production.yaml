@@ -1,10 +1,7 @@
-name: (Staging) Build & Deploy
+name: (Prod) Build & Deploy
 
 # Workflow triggers
 on:
-  push:
-    branches: [ master ]
-
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
@@ -29,10 +26,10 @@ jobs:
       - name: Configure AWS Deployment Credentials
         uses: aws-actions/configure-aws-credentials@v2
         with:
-          aws-access-key-id: ${{ secrets.AWS_STAGING_KEY }}
-          aws-secret-access-key: ${{ secrets.AWS_STAGING_SECRET }}
+          aws-access-key-id: ${{ secrets.AWS_PROD_KEY }}
+          aws-secret-access-key: ${{ secrets.AWS_PROD_SECRET }}
           aws-region: 'ap-southeast-2'
-          role-to-assume: ${{ secrets.AWS_STAGING_IAM_ROLE }}
+          role-to-assume: ${{ secrets.AWS_PROD_IAM_ROLE }}
           role-duration-seconds: 1200
 
       - name: S3 Bucket Deploy
@@ -51,10 +48,17 @@ jobs:
             --no-progress \
             --region ${AWS_REGION}
         env:
-          AWS_S3_BUCKET: ${{ vars.S3_STAGING_BUCKET }}
+          AWS_S3_BUCKET: ${{ vars.S3_PROD_BUCKET }}
 
       - name: Create Cloudfront Invalidation
         run: |
+          if [ -z "$AWS_CF_DISTRIBUTION" ]; then
+            echo "AWS_CF_DISTRIBUTION is not set. Exiting.."
+            exit 1
+          fi
+
           aws cloudfront create-invalidation \
-            --distribution-id ${{ vars.CF_STAGING_DISTRIBUTION }} \
+            --distribution-id ${AWS_CF_DISTRIBUTION} \
             --paths "/*"
+        env:
+          AWS_CF_DISTRIBUTION: ${{ vars.CF_PROD_DISTRIBUTION }}
