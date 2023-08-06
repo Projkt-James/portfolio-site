@@ -26,17 +26,6 @@ jobs:
       - name: Build Site
         run: yarn build
 
-      - name: S3 Bucket Deploy
-        uses: jakejarvis/s3-sync-action@v0.5.1
-        with: 
-          args: --acl public-read --follow-symlinks --delete
-        env:
-          AWS_S3_BUCKET: ${{ vars.S3_STAGING_BUCKET }}
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_STAGING_KEY }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_STAGING_SECRET }}
-          AWS_REGION: 'ap-southeast-2'
-          SOURCE_DIR: 'build'
-
       - name: Configure AWS Deployment Credentials
         uses: aws-actions/configure-aws-credentials@v2
         with:
@@ -46,6 +35,26 @@ jobs:
           role-to-assume: ${{ secrets.AWS_STAGING_IAM_ROLE }}
           role-duration-seconds: 1200
 
+      - name: S3 Bucket Deploy
+        run: |
+          if [ -z "$AWS_S3_BUCKET" ]; then
+            echo "AWS_S3_BUCKET is not set. Exiting.."
+            exit 1
+          fi
+
+          if [ -z "$AWS_REGION" ]; then
+              echo "AWS_REGION is not set. Defaulting to ap-southeast-2."
+              AWS_REGION="ap-southeast-2"
+          fi
+
+          aws s3 sync ./build s3://${AWS_S3_BUCKET}/ \
+            --no-progress \
+            --region ${AWS_REGION}
+        env:
+          AWS_S3_BUCKET: ${{ vars.S3_STAGING_BUCKET }}
+
       - name: Create Cloudfront Invalidation
         run: |
-          aws cloudfront create-invalidation --distribution-id ${{ vars.CF_STAGING_DISTRIBUTION }} --paths /*
+          aws cloudfront create-invalidation \
+            --distribution-id ${{ vars.CF_STAGING_DISTRIBUTION }} \
+            --paths "/*"
